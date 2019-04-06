@@ -10,6 +10,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 
 module.exports = {
+    entry: './src/index.js',
     module: {
       rules: [
         {
@@ -32,4 +33,9 @@ module.exports = {
       ]
     },
     plugins: [htmlPlugin],
+    devServer: {
+      historyApiFallback: true,
+      noInfo: true,
+      overlay: true
+    },
   };
