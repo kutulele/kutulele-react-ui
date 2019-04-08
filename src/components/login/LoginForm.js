@@ -10,9 +10,10 @@ export class LoginForm extends React.PureComponent {
   render() {
     return (
       <section id='login-form'>
-        <div className={style.title}>Kutule Login</div>
-        <div className='login-content'>
-        </div>
+      <div className={ style.title }>Kutule login</div>
+      <div class='login-content'>
+      <input type='text' className={ style.textbox }></input>
+      </div>
 
       </section>
     )
