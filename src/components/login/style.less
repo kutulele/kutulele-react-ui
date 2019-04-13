@@ -1,12 +1,111 @@
-.title {
-    font-size: 10rem;
-    width: 50%;
-    color: #fff;
-    padding: 25px 35px;
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-    box-shadow: 2px 2px 15px purple;
-    margin: 15px auto;
-    background: rgb(91,0,158);
-    background: linear-gradient(90deg, rgba(91,0,158,1) 0%, rgba(139,0,255,1) 16%, rgba(142,7,147,0.9486169467787114) 100%);
+.form {
+
+    &__card {
+        background-color: white;
+        padding: 0 5rem;
+        border-radius: .3px;
+        box-shadow: rgba(black, .3) .1rem .2rem .4rem;
+    }
+
+    &__container {
+        font-size: 2.5rem;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__header {
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        color: transparent;
+        margin: 1rem;
+        background: linear-gradient(to right, #38ef7d, #11998e);
+        color: #5eb45e;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    &__login {
+        width: 30rem;
+        text-align: center;
+    }
+
+    &__input {
+        outline: 0;
+        border: 0;
+        border-radius: 0;
+        height: 3rem;
+        font-size: 2rem;
+        margin: 1rem 0rem;
+
+        &--underline-container {
+            position: relative;
+            margin-top: -1rem;
+            width: 100%;
+            height: .2rem;
+            background-color: #cecece;
+            * {
+                position: absolute;
+                height: .2rem;
+            }
+        }
+
+        &--underline-active {
+            width: 0%;
+            z-index: 3;
+            background-color: #5eb45e;
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+        &:focus + &--underline-container &--underline-active {
+            width: 100%;
+        }
+    }
+
+    &__warning {
+        height: 3rem;
+        font-size: 1.6rem;
+        color: #f13e3e;
+        text-align: start;
+    }
+
+    &__button {
+        width: 50%;
+        background-color: #11998e;
+        color: white;
+        font-size: 2rem;
+        align-self: center;
+        padding: 1rem;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+}
+
+// to be in utils
+.flex-column-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__question {
+        font-size: 1.6rem;
+    }
+
+    &__icon {
+        height: 3rem;
+        width: 3rem;
+        margin: 1rem;
+    }
 }

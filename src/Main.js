@@ -9,7 +9,7 @@ export class Main extends Component {
   render() {
     return (
         <BrowserRouter>
-            <div className="content">
+            <div className='content'>
                 <Route path='/' component={ LoginForm }/>
             </div>
         </BrowserRouter>

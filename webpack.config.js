@@ -27,18 +27,20 @@ module.exports = {
               loader: "style-loader"
             },
             {
-              loader: "css-loader",
-              options: {
-                sourceMap: true,
-                modules: true,
-                localIdentName: "[local]___[hash:base64:5]"
-              }
+              loader: "css-loader"
             },
             {
               loader: "less-loader"
             }
           ]
         },
+        {
+          test: /\.(png|jpg|gif|svg)$/,
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]?[hash]'
+          }
+        }
       ]
     },
     plugins: [htmlPlugin],
@@ -47,4 +49,10 @@ module.exports = {
       noInfo: true,
       overlay: true
     },
+    // entry: './src/Main.js',
+    // output: {
+    //   path: path.resolve(__dirname, './dist'),
+    //   publicPath: '/dist/',
+    //   filename: 'build.js'
+    // },
   };
