@@ -8,8 +8,9 @@ import {
 } from "react-reactive-form";
 
 const TextInput = ({ handler, touched, hasError, meta }) => (
-  <div className='flex-column-container'>
-    <input type={meta.type} className='form__input' placeholder={`${meta.label}`} {...handler()} />
+  <div className='flex-column-container text-align--left position-relative'>
+    <input name={meta.name} id={meta.name} type={meta.type} className='form__input' placeholder={`${meta.placeholder}`} {...handler()} />
+    <label htmlFor={meta.name} className='form__input--label'> {meta.label} </label>
     <div className='form__input--underline-container'>
       <div className='form__input--underline-active'></div>
       <div className='form__input--underline-passive'></div>
@@ -22,7 +23,7 @@ const TextInput = ({ handler, touched, hasError, meta }) => (
 export class LoginForm extends React.PureComponent {
 
   loginForm = FormBuilder.group({
-    username: ['', Validators.required],
+    email: ['', Validators.required],
     password: ['', Validators.required]
   })
 
@@ -35,10 +36,15 @@ export class LoginForm extends React.PureComponent {
     console.log("Form values", this.loginForm.value)
   }
 
+  updateStateWithValue = (e) => {
+    console.log(e);
+  }
+
   constructor(props) {
     super(props)
     this.state = {
-      signUpActive: false
+      email: '',
+      password: ''
     }
   }
 
@@ -56,16 +62,15 @@ export class LoginForm extends React.PureComponent {
             <form className='form__login' onSubmit={this.handleSubmit}>
 
               <FieldControl
-                name="username"
+                name="email"
                 render={TextInput}
-                meta={{ label: "Username", type: "text" }}
+                meta={{ label: "Email", type: "text", name: "email", placeholder: "example@example.com"}}
               />
 
               <FieldControl
                 name="password"
-                type="password"
                 render={TextInput}
-                meta={{ label: "Password", type: "password" }}
+                meta={{ label: "Password", type: "password", name: "password", placeholder: " " }}
               />
 
               <button className='form__button'

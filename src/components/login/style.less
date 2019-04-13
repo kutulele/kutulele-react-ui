@@ -3,7 +3,7 @@
     &__card {
         background-color: white;
         padding: 3rem 5rem;
-        border-radius: .3px;
+        border-radius: .3rem;
         box-shadow: rgba(black, .3) .1rem .2rem .4rem;
     }
 
@@ -18,17 +18,13 @@
     }
 
     &__header {
-        margin-bottom: 2rem;
+        margin-bottom: 6rem;
     }
 
     &__title {
-        color: transparent;
-        margin: 1rem;
-        background: linear-gradient(to right, #38ef7d, #11998e);
-        color: #5eb45e;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
+        color: #11998e;
+        margin-bottom: 4rem;
+        margin-left: 2rem;
     }
 
     &__login {
@@ -44,28 +40,56 @@
         font-size: 2rem;
         margin: 1rem 0rem;
 
+        &::-webkit-input-placeholder {
+            opacity: 0;
+            transition: all .3s;
+        }
+
+        &--label {
+            font-size: 2rem;
+            position: absolute;
+            top: 1.15rem;
+            opacity: 1;
+            transition: all ease-in .3s;
+            cursor: text;
+            color: #11998e;
+        }
+
         &--underline-container {
             position: relative;
             margin-top: -1rem;
             width: 100%;
-            height: .2rem;
+            height: .3rem;
             background-color: #cecece;
+            border-radius: .3rem;
             * {
                 position: absolute;
-                height: .2rem;
+                height: .3rem;
             }
         }
 
         &--underline-active {
             width: 0%;
-            z-index: 3;
-            background-color: #5eb45e;
+            z-index: 2;
+            background-color: #11998e;
             -webkit-transition: all 0.3s ease-in-out 0s;
             transition: all 0.3s ease-in-out 0s;
+            border-radius: .3rem;
         }
-        &:focus + &--underline-container &--underline-active {
+
+        &:focus + &--label + &--underline-container &--underline-active {
             width: 100%;
         }
+
+        &:focus + &--label, &:not(:placeholder-shown) + &--label {
+            margin-left: -.5rem;
+            transform: translateY(-3rem) scale(.9);
+        }
+
+        &:focus::-webkit-input-placeholder {
+            opacity: 1;
+        }
+
     }
 
     &__warning {
@@ -99,6 +123,15 @@
 .flex-column-container {
     display: flex;
     flex-direction: column;
+}
+
+.text-align--left {
+    text-align: left;
+}
+
+.position-relative {
+    position: relative;
+    margin: 2rem;
 }
 
 .signup {
